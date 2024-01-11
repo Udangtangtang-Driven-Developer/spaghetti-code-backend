@@ -1,0 +1,15 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "..",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "moduleNameMapper": {
+    "^@udtt/(.*)$": "<rootDir>/src/$1",
+    "^@udtt-libs/(.*)$": "<rootDir>/libs/$1",
+    "^@udtt-test/(.*)$": "<rootDir>/test/$1",
+    "^@udtt-config/(.*)$": "<rootDir>/config/$1"
+  },
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  }
+}

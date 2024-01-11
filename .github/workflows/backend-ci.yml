@@ -1,0 +1,42 @@
+name: development CI
+
+on:
+  pull_request:
+    branches:
+      - 'develop'
+
+jobs:
+  build-and-test-backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Check node version
+        run: node -v
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./backend
+
+      - name: Lint Test
+        run: npm run lint
+        working-directory: ./backend
+
+      - name: Unit Test
+        run: npm run test
+        working-directory: ./backend
+
+      - name: E2E Test
+        run: npm run test:e2e
+        working-directory: ./backend
+
+      - name: Test build
+        run: npm run build
+        working-directory: ./backend
